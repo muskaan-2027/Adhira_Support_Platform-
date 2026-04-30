@@ -46,23 +46,20 @@ exports.analyzePostWithAI = async (content) => {
         const prompt = `Analyze the following user post from a women safety and support community app. 
 Evaluate it based on the following criteria:
 1. Urgency: How urgent is this post? 
-   - green: Normal, sharing a story, general question, no immediate danger.
-   - yellow: Concerning, seeking advice, distress, emotional pain, or minor physical abuse (e.g. "beats me").
-   - red: Extremely urgent. USE THIS for:
-     * Serious stalking or being followed for a long time.
-     * Active life-threatening situations or suicidal ideation.
-     * Severe active crimes.
+   - green: (DEFAULT) Normal post, general sharing, seeking general advice, venting, or raising awareness. No immediate physical danger.
+   - yellow: Concerning, active emotional distress, or past abuse where the user is currently safe but needs help.
+   - red: Extremely urgent and life-threatening ONLY. Active stalking, immediate physical violence, active crimes, or suicidal ideation.
 2. Toxicity: Is this post highly toxic, abusive towards others, or promoting harm?
-   - low: Normal, supportive.
-   - medium: Heated emotion.
-   - high: Promoting violence or hate speech.
-3. Field: What is the main topic? (e.g., "Stalking", "Domestic Violence", "Harassment", "Mental Health").
+   - low: Normal, supportive, or venting.
+   - medium: Heated emotion or swearing.
+   - high: Promoting violence or hate speech towards others.
+3. Field: You have full autonomy to categorize this post. Provide a precise, descriptive 1-3 word category (e.g., "Domestic Violence", "Cyber Harassment", "Mental Health", "Legal Advice", "Public Safety", etc.).
 
 Respond ONLY with a valid JSON object matching this structure:
 {
   "urgencyColor": "green" | "yellow" | "red",
   "toxicityLevel": "low" | "medium" | "high",
-  "field": "Category String"
+  "field": "Generated Category String"
 }
 
 Post Content: "${content.replace(/"/g, '\\"')}"`;

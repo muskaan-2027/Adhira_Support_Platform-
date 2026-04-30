@@ -12,6 +12,7 @@ import 'chatbot_screen.dart';
 import 'need_guidance_screen.dart';
 import 'notifications_screen.dart';
 import '../utils/nav_helper.dart';
+import '../utils/image_helper.dart';
 import 'user_dashboard_screen.dart';
 import 'volunteer_dashboard_screen.dart';
 class CommunityScreen extends StatefulWidget {
@@ -499,7 +500,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                CircleAvatar(
                  radius: 22,
                  backgroundColor: const Color(0xFFF2E2D8),
-                 backgroundImage: user?.profilePhoto != null ? NetworkImage(user!.profilePhoto!) : null,
+                backgroundImage: user?.profilePhoto != null ? getImageProvider(user!.profilePhoto!) : null,
                  child: user?.profilePhoto == null ? Icon(Icons.person, color: selectedTabColor) : null,
                ),
                const SizedBox(width: 12),

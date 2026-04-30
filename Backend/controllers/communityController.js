@@ -69,7 +69,7 @@ Return ONLY the raw JSON array. No markdown, no extra text.`;
             contents: [{ parts: [{ text: prompt }] }]
         });
 
-        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
 
         const response = await postJson(GEMINI_URL, {
             headers: { "Content-Type": "application/json" },

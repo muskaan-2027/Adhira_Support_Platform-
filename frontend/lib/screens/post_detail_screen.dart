@@ -7,6 +7,7 @@ import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../services/notification_service.dart';
 import '../widgets/post_card.dart';
+import '../utils/image_helper.dart';
 
 class PostDetailScreen extends StatefulWidget {
   final PostModel post;
@@ -142,7 +143,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                     radius: 16,
                                     backgroundColor: primaryColor.withOpacity(0.2),
                                     backgroundImage: c['userId']?['profilePhoto'] != null
-                                        ? NetworkImage(c['userId']['profilePhoto'])
+                                        ? getImageProvider(c['userId']['profilePhoto'])
                                         : null,
                                     child: c['userId']?['profilePhoto'] == null 
                                         ? Icon(Icons.person, color: primaryColor, size: 20)

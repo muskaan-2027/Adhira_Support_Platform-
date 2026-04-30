@@ -8,6 +8,7 @@ import '../services/auth_service.dart';
 import '../services/notification_service.dart';
 import '../screens/post_detail_screen.dart';
 import '../screens/public_profile_screen.dart';
+import '../utils/image_helper.dart';
 
 class PostCard extends StatefulWidget {
   final PostModel post;
@@ -118,27 +119,12 @@ class _PostCardState extends State<PostCard> {
     final url = widget.post.mediaUrl;
     if (url.isEmpty || widget.post.mediaType != 'image') return null;
 
-    Widget image;
-    if (url.startsWith('data:image')) {
-      try {
-        final base64Str = url.split(',').last;
-        image = Image.memory(
-          base64Decode(base64Str),
-          fit: BoxFit.cover,
-          width: double.infinity,
-          errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-        );
-      } catch (_) {
-        return null;
-      }
-    } else {
-      image = Image.network(
-        url,
-        fit: BoxFit.cover,
-        width: double.infinity,
-        errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-      );
-    }
+    Widget image = Image(
+      image: getImageProvider(url),
+      fit: BoxFit.cover,
+      width: double.infinity,
+      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+    );
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
@@ -215,7 +201,7 @@ class _PostCardState extends State<PostCard> {
                     radius: 20,
                     backgroundColor: Colors.grey.shade200,
                     backgroundImage: widget.post.user?['profilePhoto'] != null && !widget.post.isAnonymous
-                        ? NetworkImage(widget.post.user!['profilePhoto'])
+                        ? getImageProvider(widget.post.user!['profilePhoto'])
                         : null,
                     child: (widget.post.user?['profilePhoto'] == null || widget.post.isAnonymous)
                         ? const Icon(Icons.person, color: Colors.grey)
