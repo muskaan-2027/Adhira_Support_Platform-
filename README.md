@@ -11,13 +11,13 @@ The application is built with a **Flutter** frontend for cross-platform compatib
 
 ## 🚀 Key Features
 
-- **🚨 SOS & Real-time Distress Actions**: Instant access to emergency numbers (112, 1091) and actionable safety steps based on the severity of the user's situation.
-- **🗣️ Multilingual Support**: Accessible in English and 8 Indian regional languages (Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada) to ensure language is not a barrier to safety.
-- **🧠 AI Sentiment Analysis**: Automatically analyzes community posts to detect distress levels (Urgency: Red/Yellow/Green), toxicity, and automatically categorizes fields (e.g., Stalking, Domestic Violence).
-- **🌍 Know Your Community**: A dynamic news and resources feed powered by Gemini AI, pulling the latest relevant safety articles, blogs, and support resources based on user search.
-- **🤖 "Sophie" AI Assistant**: An empathetic, supportive AI chatbot (powered by Groq/Llama-3 and Gemini) that provides actionable safety steps and simple explanations of Indian laws (IPC/BNS).
-- **🛡️ Role-Based Architecture**: Distinct interfaces and functionalities for **Users** (seeking support) and **Volunteers** (offering assistance and guidance).
-- **📖 Community Stories**: A safe space for users to share their experiences (anonymously if preferred) to inspire, raise awareness, and build a stronger community.
+- ** SOS & Real-time Distress Actions**: Instant access to emergency numbers (112, 1091) and actionable safety steps based on the severity of the user's situation.
+- **Multilingual Support**: Accessible in English and 8 Indian regional languages (Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada) to ensure language is not a barrier to safety.
+- **AI Sentiment Analysis**: Automatically analyzes community posts to detect distress levels (Urgency: Red/Yellow/Green), toxicity, and automatically categorizes fields (e.g., Stalking, Domestic Violence).
+- **Know Your Community**: A dynamic news and resources feed powered by Gemini AI, pulling the latest relevant safety articles, blogs, and support resources based on user search.
+- **"Sophie" AI Assistant**: An empathetic, supportive AI chatbot (powered by Groq/Llama-3 and Gemini) that provides actionable safety steps and simple explanations of Indian laws (IPC/BNS).
+- **Role-Based Architecture**: Distinct interfaces and functionalities for **Users** (seeking support) and **Volunteers** (offering assistance and guidance).
+- **Community Stories**: A safe space for users to share their experiences (anonymously if preferred) to inspire, raise awareness, and build a stronger community.
 
 ## 🛠️ Tech Stack
 
@@ -28,7 +28,7 @@ The application is built with a **Flutter** frontend for cross-platform compatib
   - **Google Gemini API** (Community content curation & advanced Sentiment Analysis)
   - **Groq API** (Llama-3 model for rapid, empathetic Chatbot responses)
 
-## 💻 Run on Windows (PowerShell)
+## Run on Windows (PowerShell)
 
 ### Quick Start (print commands)
 From the project root, you can run the provided script to set up and start the application:
@@ -79,7 +79,7 @@ flutter run -d chrome --dart-define=API_BASE_URL=http://127.0.0.1:5000
 ```
 *Note: If the backend runs on another port, update `API_BASE_URL` to match.*
 
-## 📌 Important Notes
+## Important Notes
 - Signup requires selecting a role (`user` or `volunteer`).
 - If a logged-in account has no role (e.g., first-time Google Auth), the app will prompt for a role selection before granting dashboard access.
 - The Chatbot uses Groq when `GROQ_API_KEY` is present; otherwise, it falls back to Gemini or built-in safety replies.
